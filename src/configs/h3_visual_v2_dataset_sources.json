@@ -1,0 +1,45 @@
+{
+  "primary_now": "neosapience/TA2.0_animation_dataset",
+  "curated_manifest": {
+    "name": "ta20_visual_v2_1k",
+    "modal_out_dir": "/runs/manifests/ta20_visual_v2_1k",
+    "target_clips": 1000,
+    "max_per_ref": 2,
+    "prefer_language": "en",
+    "min_frames": 80,
+    "split_by": "ref_id",
+    "train_frac": 0.8,
+    "val_frac": 0.1,
+    "test_frac": 0.1
+  },
+  "sources": [
+    {
+      "id": "neosapience/TA2.0_animation_dataset",
+      "status": "downloaded_on_modal",
+      "license": "Apache-2.0",
+      "use": "primary animated talking-avatar visual LoRA data",
+      "decision": "use curated subset now"
+    },
+    {
+      "id": "Shofo/shofo-talking-head-en",
+      "status": "gated",
+      "license": "other/gated",
+      "use": "real English talking-head motion and framing",
+      "decision": "request access, optional for v3"
+    },
+    {
+      "id": "EngineeringAI-LAB/3DTalkingDataset",
+      "status": "open",
+      "license": "Apache-2.0",
+      "use": "human talking-head motion priors and evaluation",
+      "decision": "sample later, not primary for character LoRA"
+    },
+    {
+      "id": "FreedomIntelligence/TalkVid",
+      "status": "open",
+      "license": "CC-BY-NC-4.0",
+      "use": "benchmark/eval only for non-commercial research",
+      "decision": "do not train commercial LoRA on it"
+    }
+  ]
+}

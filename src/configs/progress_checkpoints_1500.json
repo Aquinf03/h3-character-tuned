@@ -1,0 +1,34 @@
+{
+  "checkpoints": [
+    {
+      "name": "ckpt_250",
+      "step": 250,
+      "purpose": "early identity and motion check"
+    },
+    {
+      "name": "ckpt_500",
+      "step": 500,
+      "purpose": "compare against previous 500-step run"
+    },
+    {
+      "name": "ckpt_750",
+      "step": 750,
+      "purpose": "mid-run quality and stability check"
+    },
+    {
+      "name": "ckpt_1000",
+      "step": 1000,
+      "purpose": "late-run convergence check"
+    },
+    {
+      "name": "ckpt_1250",
+      "step": 1250,
+      "purpose": "candidate best checkpoint by validation loss"
+    },
+    {
+      "name": "ckpt_1500",
+      "step": 1500,
+      "purpose": "final checkpoint for this run"
+    }
+  ]
+}

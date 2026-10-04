@@ -1,0 +1,25 @@
+{
+  "adapter_name": "h3-avatar-audio-v2",
+  "base_model": "MiniMax-H3 Ref2VA",
+  "adapter_type": "lora",
+  "rank": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.0,
+  "target_modules": [
+    "to_qkv",
+    "to_out.0",
+    "linear_1",
+    "linear_2"
+  ],
+  "trainable_parameters": 10655744,
+  "source_checkpoint": "assets/model/h3-avatar-audio-v2-step1000.pt",
+  "exported_weights": "results/adapter_model.safetensors",
+  "training": {
+    "steps": 1000,
+    "train_clips": 385,
+    "accepted_transcript_clips": 481,
+    "cache_resolution": "384x384",
+    "cache_frames": 56,
+    "audio_loss_scale": 2.0
+  }
+}

@@ -1,0 +1,8 @@
+{"suite":"identity_same_character","prompt":"The character talks directly to the camera and gives a short product explanation.","motion_mode":"static","split":"val"}
+{"suite":"identity_same_character","prompt":"The character calmly introduces themself in one sentence.","motion_mode":"static","split":"val"}
+{"suite":"identity_new_character","prompt":"The character looks at the camera, smiles, and says a friendly greeting.","motion_mode":"static","split":"test"}
+{"suite":"identity_new_character","prompt":"The character explains a new feature with natural facial motion.","motion_mode":"active","split":"test"}
+{"suite":"motion_static_active","prompt":"The character remains mostly still while speaking clearly to camera.","motion_mode":"static","split":"val"}
+{"suite":"motion_static_active","prompt":"The character uses expressive head and shoulder motion while speaking.","motion_mode":"active","split":"val"}
+{"suite":"audio_sync","prompt":"The character speaks a short sentence with clear synchronized mouth movement.","motion_mode":"static","split":"val"}
+{"suite":"prompt_following","prompt":"The character pauses, smiles, then gives a concise call to action.","motion_mode":"active","split":"val"}

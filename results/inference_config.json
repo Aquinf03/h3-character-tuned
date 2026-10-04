@@ -1,0 +1,20 @@
+{
+  "model_name": "h3-avatar-audio-v2",
+  "task": "ref2va",
+  "default_duration_seconds": 10,
+  "default_fps": 24,
+  "default_num_frames": 243,
+  "default_width": 512,
+  "default_height": 512,
+  "default_inference_steps": 30,
+  "generate_audio": true,
+  "include_reference_audio": false,
+  "seed": 1500,
+  "request_fields": {
+    "reference_image": "required image input",
+    "dialogue": "text the character should attempt to say",
+    "direction": "style, expression, motion, camera, and speech guidance",
+    "background": "selected or custom scene description"
+  },
+  "prompt_template": "{direction} Make the character say: \"{dialogue}\". The scene is set {background}."
+}

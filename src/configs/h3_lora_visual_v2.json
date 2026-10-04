@@ -1,0 +1,84 @@
+{
+  "name": "h3_lora_visual_v2",
+  "end_goal": "Reference-conditioned silent/talking-avatar visual LoRA with strong identity preservation, stable motion, and no dependency on generated H3 audio.",
+  "checkpoint_selection": {
+    "primary": "manual_visual_score",
+    "secondary": "validation_video_loss",
+    "reject_if": [
+      "visual_score_worse_than_base",
+      "identity_drift_in_more_than_2_of_12_eval_clips",
+      "major_melting_or_flicker_in_more_than_2_of_12_eval_clips",
+      "no_visible_motion_in_more_than_4_of_12_eval_clips"
+    ]
+  },
+  "eval": {
+    "height": 512,
+    "width": 512,
+    "num_inference_steps": 30,
+    "generate_audio": false,
+    "include_reference_audio": false,
+    "heldout_references": 12,
+    "style_buckets": {
+      "anime": 4,
+      "cartoon_illustration": 3,
+      "mascot_3d_object": 3,
+      "user_refs": 2
+    },
+    "score_weights": {
+      "identity": 0.35,
+      "talking_motion": 0.30,
+      "temporal_stability": 0.20,
+      "prompt_usefulness": 0.10,
+      "audio_diagnostic": 0.05
+    }
+  },
+  "dataset": {
+    "use_full_dump_directly": false,
+    "curated_first_run_target_clips": 1000,
+    "full_run_target_clips": 2500,
+    "split_by": "character_or_source_cluster",
+    "train": 0.8,
+    "val": 0.1,
+    "test": 0.1,
+    "filters": [
+      "remove_near_duplicates",
+      "reject_blurry_or_occluded_faces",
+      "reject_tiny_faces",
+      "require_visible_mouth_motion",
+      "cap_character_cluster_frequency",
+      "include_cartoon_and_mascot_out_of_domain_eval"
+    ]
+  },
+  "training_sweeps": [
+    {
+      "name": "resolution_sweep",
+      "values": [256, 384]
+    },
+    {
+      "name": "lora_rank_sweep",
+      "values": [16, 32]
+    },
+    {
+      "name": "learning_rate_sweep",
+      "values": [0.00005, 0.0001]
+    }
+  ],
+  "upstream_constraints": {
+    "current_trainer_ref_conditioning": "incomplete_reference_media_not_encoded_into_conditioning_sequence",
+    "preferred_audio_mode": "video_only_for_now",
+    "simpletuner_settings_to_test": {
+      "minimax_h3_target_mode": "video",
+      "validation_disable_unconditional": true,
+      "validation_guidance": 1.0,
+      "validation_guidance_real": 1.0,
+      "distillation_method": "h3_drift"
+    },
+    "baseline_ablation": [
+      "base_ref2va",
+      "base_fl2va_or_i2v",
+      "v1_lora_ref2va",
+      "v2_lora_visual"
+    ]
+  },
+  "stop_rule": "Stop if validation loss worsens twice and visual score does not improve over base H3."
+}

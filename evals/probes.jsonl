@@ -1,0 +1,2 @@
+{"prompt":"Reference image plus prompt: the character talks directly to the camera and explains a new product.","reference":"The output should preserve the reference character identity, produce natural talking motion, include synchronized audio, and follow the product-explainer prompt."}
+{"prompt":"Reference image plus prompt: the character smiles, pauses, then gives a short greeting.","reference":"The output should keep identity stable across motion, produce plausible mouth movement, and not drift into a different character."}

@@ -1,0 +1,36 @@
+{
+  "name": "h3_ref2va_lora_5_checkpoint_progression",
+  "metric": "avatar_gate",
+  "checkpoints": [
+    {
+      "name": "ckpt_020",
+      "step": 20,
+      "purpose": "pipeline sanity: output decodes, reference is visible, audio exists",
+      "min_score": 0.35
+    },
+    {
+      "name": "ckpt_040",
+      "step": 40,
+      "purpose": "early identity: character should remain recognizable on easy prompts",
+      "min_score": 0.45
+    },
+    {
+      "name": "ckpt_060",
+      "step": 60,
+      "purpose": "motion and talking: static and active talking modes should both work",
+      "min_score": 0.55
+    },
+    {
+      "name": "ckpt_080",
+      "step": 80,
+      "purpose": "prompt control: behavior changes without losing identity",
+      "min_score": 0.63
+    },
+    {
+      "name": "ckpt_100",
+      "step": 100,
+      "purpose": "smoke target: usable LoRA candidate for larger run decision",
+      "min_score": 0.70
+    }
+  ]
+}

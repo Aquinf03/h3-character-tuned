@@ -1,0 +1,36 @@
+{
+  "name": "h3_ref2va_lora_500_step_intermediate",
+  "metric": "avatar_gate",
+  "checkpoints": [
+    {
+      "name": "ckpt_100",
+      "step": 100,
+      "purpose": "baseline smoke checkpoint from the first run",
+      "min_score": 0.70
+    },
+    {
+      "name": "ckpt_200",
+      "step": 200,
+      "purpose": "check whether identity/detail improves beyond smoke",
+      "min_score": 0.72
+    },
+    {
+      "name": "ckpt_300",
+      "step": 300,
+      "purpose": "watch for detail recovery versus over-smoothing",
+      "min_score": 0.75
+    },
+    {
+      "name": "ckpt_400",
+      "step": 400,
+      "purpose": "verify talking motion and prompt following remain stable",
+      "min_score": 0.77
+    },
+    {
+      "name": "ckpt_500",
+      "step": 500,
+      "purpose": "intermediate decision checkpoint before scaling to 1500-2000",
+      "min_score": 0.80
+    }
+  ]
+}

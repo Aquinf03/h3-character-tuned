@@ -1,0 +1,39 @@
+{
+  "name": "h3_ref2va_lora_audio_v1_en",
+  "goal": "Model-generated audio with clearer English-like speech and better mouth/audio synchronization.",
+  "manifest": {
+    "output_dir": "/runs/manifests/ta20_audio_v1_en_500",
+    "limit": 500,
+    "seed": 31,
+    "language": "en",
+    "motion_mode": "active",
+    "min_frames": 124,
+    "min_vqa": 0.45,
+    "min_snr": 8.0,
+    "min_c50": 10.0,
+    "max_per_ref": 2
+  },
+  "cache": {
+    "output": "/runs/cache/ta20_audio_v1_en_500_train_384_56",
+    "height": 384,
+    "width": 384,
+    "frames": 56
+  },
+  "training": {
+    "output": "/runs/h3/ref2va-lora-audio-v1-en-384-56-r16",
+    "max_steps": 1500,
+    "lr": 0.00005,
+    "ckpt_every": 500,
+    "trainable": "lora",
+    "audio_loss_scale": 2.0
+  },
+  "eval": {
+    "samples": 3,
+    "num_frames": 124,
+    "height": 512,
+    "width": 512,
+    "num_inference_steps": 30,
+    "generate_audio": true,
+    "include_reference_audio": true
+  }
+}

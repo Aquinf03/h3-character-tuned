@@ -1,0 +1,28 @@
+family: video
+method: h3_ref2va
+model: MiniMaxAI/MiniMax-H3
+variant: ref2va
+objective: lora
+precision: bf16
+rank: 8
+steps: 100
+lr: 0.0001
+seed: 7
+dry_run: true
+checkpoint_steps: 20,40,60,80,100
+data:
+  path: data/metadata/ta20_smoke_manifest.jsonl
+  target: quality_score
+eval:
+  metric: avatar_gate
+  min_score: 0.70
+h3:
+  trainer_dir: env:H3_TRAINER_DIR  # defaults to src/ when unset
+  model_dir: env:H3_MODEL_DIR
+  dataset_root: env:TA20_ROOT
+  cache_dir: artifacts/h3/cache
+  output_dir: artifacts/h3/runs/ref2va-lora-smoke
+  train_manifest: data/metadata/train.jsonl
+  val_manifest: data/metadata/val.jsonl
+  test_manifest: data/metadata/test.jsonl
+  checkpoint_dir: artifacts/h3/runs/ref2va-lora-smoke/checkpoints

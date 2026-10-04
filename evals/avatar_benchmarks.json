@@ -1,0 +1,48 @@
+{
+  "name": "h3_avatar_progress_benchmarks",
+  "scoring_scale": "0.0 to 1.0",
+  "aggregate": {
+    "identity": 0.30,
+    "talking_motion": 0.20,
+    "audio_sync": 0.20,
+    "prompt_following": 0.15,
+    "generalization": 0.15
+  },
+  "suites": [
+    {
+      "name": "identity_same_character",
+      "split": "val",
+      "n": 8,
+      "metric": "identity",
+      "description": "Same-character validation references. Check whether the generated avatar resembles the reference character."
+    },
+    {
+      "name": "identity_new_character",
+      "split": "test",
+      "n": 8,
+      "metric": "generalization",
+      "description": "Held-out ref_id characters. Check whether reference conditioning works beyond training identities."
+    },
+    {
+      "name": "motion_static_active",
+      "split": "val",
+      "n": 8,
+      "metric": "talking_motion",
+      "description": "Balanced static and active motion prompts. Check body/head motion and mouth activity."
+    },
+    {
+      "name": "audio_sync",
+      "split": "val",
+      "n": 8,
+      "metric": "audio_sync",
+      "description": "Check whether speech audio exists and lip movement is plausibly synchronized."
+    },
+    {
+      "name": "prompt_following",
+      "split": "val",
+      "n": 8,
+      "metric": "prompt_following",
+      "description": "Prompt swaps over the same reference. Check whether behavior changes while identity stays stable."
+    }
+  ]
+}

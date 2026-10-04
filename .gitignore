@@ -1,0 +1,17 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+
+# Generated run outputs
+artifacts/
+data/
+tmp/
+*.log
+
+# Large external assets live in Modal/HF, not git
+TA2.0_animation_dataset/
+MiniMax-H3/
+
